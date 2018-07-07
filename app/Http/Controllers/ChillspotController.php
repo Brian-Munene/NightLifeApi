@@ -16,9 +16,9 @@ class ChillspotController extends Controller
      */
     public function index()
     {
-        $chillspots = Chillspot::paginate(6);
+        $chillspots = Chillspot::all();
 
-        return ChillspotResource::collection($chillspots);
+        return $chillspots;
     }
 
     /**
@@ -59,7 +59,7 @@ class ChillspotController extends Controller
        // $chillspot->owner_id = $user_id;
 
         $chillspot->save();
-        return new ChillspotResource($chillspot);
+        return $chillspot;
         
     }
 
@@ -73,7 +73,7 @@ class ChillspotController extends Controller
     {
         $chillspot = Chillspot::find($id);
 
-        return new ChillspotResource($chillspot);
+        return $chillspot;
     }
 
     /**

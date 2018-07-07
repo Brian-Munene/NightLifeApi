@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Owner;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -13,7 +13,8 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        //
+        $owners = Owner::all();
+        return $owners;
     }
 
     /**
@@ -45,7 +46,8 @@ class OwnerController extends Controller
      */
     public function show($id)
     {
-        //
+        $owner = find($id);
+        return $owner;
     }
 
     /**

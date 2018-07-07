@@ -50,7 +50,7 @@ class UserController extends Controller
     {   
         $id = auth()->user()->id;
         $user = User::find($id);
-        return new UserResource($user);
+        return $user;
     }
 
     /**

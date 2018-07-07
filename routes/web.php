@@ -36,5 +36,10 @@ Route::get('/review/{id}','ReviewController@show');
 //Route to view a review
 Route::delete('/reviewdelete/{id}','ReviewController@destroy');
 
+//View Owners
+Route::get('/owners','OwnerController@index');
+//View one owner
+Route::get('/owner/{id}','OwnerController@show');
+
 //View User Profile
 Route::get('/user', 'UserController@show');

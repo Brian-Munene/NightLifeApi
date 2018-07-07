@@ -16,8 +16,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::paginate(6);
-        return ReviewResource::collection($reviews);
+        $reviews = Review::all();
+        return  $reviews;
     }
 
     /**
@@ -49,7 +49,7 @@ class ReviewController extends Controller
        $review->review = $request->input('review');
        $review->rating = $request->input('rating');
        $review->save();
-       return new ReviewResource($review);
+       return $review;
     }
 
     /**
@@ -61,7 +61,7 @@ class ReviewController extends Controller
     public function show($id)
     {
         $review = Review::find($id);
-        return new ReviewResource($review);
+        return $review;
     }
 
     /**
@@ -95,7 +95,7 @@ class ReviewController extends Controller
        $review->review = $request->input('review');
        $review->rating = $request->input('rating');
        $review->save();
-       return new ReviewResource($review);
+       return $review;
     }
 
     /**
