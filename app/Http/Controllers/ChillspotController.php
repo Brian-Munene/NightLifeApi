@@ -39,14 +39,15 @@ class ChillspotController extends Controller
      */
     public function store(Request $request)
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        //$user_id = auth()->user()->id;
+        //$user = User::find($user_id);
         $this->validate($request,[
             'name' => 'required',
             'category' => 'required',
             'location' => 'required',
             'email' => 'required',
-            'phoneNumber' => 'required'
+            'phoneNumber' => 'required',
+            'owner_id' => 'required'
         ]);
         
         $chillspot = new Chillspot;
@@ -59,7 +60,7 @@ class ChillspotController extends Controller
        // $chillspot->owner_id = $user_id;
 
         $chillspot->save();
-        return $chillspot;
+        return "Location Saved";
         
     }
 

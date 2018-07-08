@@ -38,14 +38,15 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+        //$user_id = auth()->user()->id;
+        //$user = User::find($user_id);
         $this->validate($request,[
+            'email' => 'required',
             'review' => 'required',
             'rating' => 'required'
         ]);
        $review = new Review;
-       $review->user_id = $user_id;
+       $review->email =$request->input('email');
        $review->review = $request->input('review');
        $review->rating = $request->input('rating');
        $review->save();
