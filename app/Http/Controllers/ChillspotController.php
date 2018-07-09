@@ -44,7 +44,9 @@ class ChillspotController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'category' => 'required',
-            'location' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'rating' => 'required',
             'email' => 'required',
             'phoneNumber' => 'required',
             'owner_id' => 'required'
@@ -53,9 +55,9 @@ class ChillspotController extends Controller
         $chillspot = new Chillspot;
         $chillspot->name = $request->input('name');
         $chillspot->category = $request->input('category');
-        $chillspot->location = $request->input('location');
-        $chillspot->email = $request->input('email');
-        $chillspot->phoneNumber = $request->input('phoneNumber');
+        $chillspot->latitude = $request->input('latitude');
+        $chillspot->longitude = $request->input('longitude');
+        $chillspot->rating = $request->input('rating');
         $chillspot->owner_id = $request->input('owner_id');
        // $chillspot->owner_id = $user_id;
 

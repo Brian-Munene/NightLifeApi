@@ -17,11 +17,10 @@ class CreaateLocationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('category');
-            $table->string('location');
-            $table->string('email');
-            $table->integer('phoneNumber');
+            $table->double('latitude');
+            $table->double('longitude');
+            $table->double('rating')->default('0');
             $table->integer('owner_id');
-            $table->timestamps();
         });
     }
 
