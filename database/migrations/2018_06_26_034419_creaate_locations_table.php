@@ -21,7 +21,8 @@ class CreaateLocationsTable extends Migration
             $table->double('longitude');
             $table->double('rating')->default('0');
             $table->integer('owner_id');
-        });
+            $table->timestamps();
+                });
     }
 
     /**
