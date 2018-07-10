@@ -42,4 +42,4 @@ Route::get('/owners','OwnerController@index');
 Route::get('/owner/{id}','OwnerController@show');
 
 //View User Profile
-Route::get('/user', 'UserController@show');
+Route::get('/user/{id}', 'UserController@show');
