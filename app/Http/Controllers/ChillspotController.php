@@ -47,8 +47,6 @@ class ChillspotController extends Controller
             'latitude' => 'required',
             'longitude' => 'required',
             'rating' => 'required',
-            'email' => 'required',
-            'phoneNumber' => 'required',
             'owner_id' => 'required'
         ]);
         

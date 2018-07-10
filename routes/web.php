@@ -36,6 +36,8 @@ Route::get('/review/{id}','ReviewController@show');
 //Route to view a review
 Route::delete('/reviewdelete/{id}','ReviewController@destroy');
 
+//Register as an owner
+Route::post('/owner', 'OwnerController@store');
 //View Owners
 Route::get('/owners','OwnerController@index');
 //View one owner

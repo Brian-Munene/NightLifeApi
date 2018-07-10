@@ -35,7 +35,20 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        $owner = new Owner;
+        $owner->firstname = $request->input('firstname') ;
+        $owner->lastname = $request->input('lastname');
+        $owner->email = $request->input('email');
+        $owner->password = $request->input('password');
+        $owner->save();
+        return "You are now a registered owner";
+
     }
 
     /**
