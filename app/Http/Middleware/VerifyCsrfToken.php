@@ -16,6 +16,7 @@ class VerifyCsrfToken extends Middleware
         '/register',
         '/login',
         '/review',
-        '/owner'
+        '/owner',
+        '/user/*'
     ];
 }

@@ -45,3 +45,5 @@ Route::get('/owner/{id}','OwnerController@show');
 
 //View User Profile
 Route::get('/user/{id}', 'UserController@show');
+Route::post('/user/save', 'UserController@store');
+Route::post('/users/login', 'UserController@login');

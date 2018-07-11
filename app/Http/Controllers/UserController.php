@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -37,7 +37,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
+            "email"  => $request->email,
+            "password" => bcrypt($request->password),
+        ]);
+
+        if(!$user){
+            return response()->json($user, 400);
+        } else{
+            return response()->json($user, 200);
+        }
     }
 
     /**
@@ -47,7 +58,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {
         //$id = auth()->user()->id;
         $user = User::find($id);
         return $user;
@@ -85,5 +96,21 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function login (Request $request) {
+
+        if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            // Authentication passed...
+            $user = auth()->user();
+            $user->api_token = str_random(60);
+            $user->save();
+            return $user;
+        }
+
+        return response()->json([
+            'error' => 'Unauthenticated user',
+            'code' => 401,
+        ], 401);
     }
 }
