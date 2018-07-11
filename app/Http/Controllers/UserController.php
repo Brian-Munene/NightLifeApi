@@ -105,7 +105,6 @@ class UserController extends Controller
         if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             // Authentication passed...
             $user = auth()->user();
-            $user->api_token = str_random(60);
             $user->save();
             return $user;
         }
